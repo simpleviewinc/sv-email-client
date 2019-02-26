@@ -1,0 +1,25 @@
+{
+	"name": "@simpleview/sv-email-client",
+	"version": "1.0.0",
+	"description": "Client for communicating with sv-email",
+	"author": "Quinton Price <gotshogi@gmail.com>",
+	"devDependencies": {
+		"@simpleview/mochalib": "1.0.1",
+		"mocha": "5.2.0"
+	},
+	"dependencies": {
+		"@simpleview/sv-graphql-client": "1.0.0",
+		"axios": "0.18.0",
+		"express": "4.16.4"
+	},
+	"main": "src/index.js",
+	"scripts": {
+		"test": "mocha testing",
+		"docker": "./docker/build && ./docker/run || true"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/simpleviewinc/sv-email-client"
+	},
+	"license": "MIT"
+}
