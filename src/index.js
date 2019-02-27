@@ -1,5 +1,3 @@
 const EmailPrefix = require("./prefixes/EmailPrefix");
 
-module.exports = {
-	EmailPrefix
-}
+module.exports = { EmailPrefix }

@@ -6,12 +6,13 @@ class Email {
 		this._graphServer = graphServer;
 	}
 	async send({ input, fields, context }) {
+		console.log(context)
 		context = context || this._graphServer.context;
-		
+
 		const variables = {
 			input
 		}
-		
+
 		const response = await query({
 			query : `
 				mutation($input: [email_object_input]!) {
@@ -25,7 +26,6 @@ class Email {
 			variables,
 			url : this._graphUrl
 		});
-		console.log(response)
 		
 		return response.email.send;
 	}
