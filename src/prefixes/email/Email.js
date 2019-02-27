@@ -6,7 +6,6 @@ class Email {
 		this._graphServer = graphServer;
 	}
 	async send({ input, fields, context }) {
-		console.log(context)
 		context = context || this._graphServer.context;
 
 		const variables = {
