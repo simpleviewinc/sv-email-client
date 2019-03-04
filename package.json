@@ -3,8 +3,8 @@
 	"version": "1.0.1",
 	"description": "Client for communicating with sv-email",
 	"author": "Quinton Price <gotshogi@gmail.com>",
-	"dependencies": {
-		"@simpleview/sv-graphql-client": "1.0.0"
+	"peerDependencies": {
+		"@simpleview/sv-graphql-client": "*"
 	},
 	"main": "src/index.js",
 	"scripts": {
