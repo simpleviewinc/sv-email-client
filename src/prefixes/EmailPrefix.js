@@ -1,11 +1,34 @@
-const Email = require("./email/Email");
+const { query } = require("@simpleview/sv-graphql-client");
 
 class EmailPrefix {
 	constructor({ graphUrl, graphServer }) {
 		this.name = "email";
 		
-		const _email = new Email({ graphUrl, name : this.name, graphServer });
-		this["send"] = _email.send.bind(_email);
+		this._graphUrl = graphUrl;
+		this._graphServer = graphServer;
+	}
+	async send({ input, fields, context }) {
+		context = context || this._graphServer.context;
+
+		const variables = {
+			input
+		}
+
+		const response = await query({
+			query : `
+				mutation($input: email_send_input!) {
+					email {
+						send(input: $input) {
+							${fields}
+						}
+					}
+				}
+			`,
+			variables,
+			url : this._graphUrl
+		});
+		
+		return response.email.send;
 	}
 }
 
