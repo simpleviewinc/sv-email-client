@@ -25,7 +25,8 @@ class EmailPrefix {
 				}
 			`,
 			variables,
-			url : this._graphUrl
+			url : this._graphUrl,
+			token : context.token
 		});
 		
 		return response.email.send;
