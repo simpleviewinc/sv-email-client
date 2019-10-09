@@ -1,6 +1,6 @@
 {
 	"name": "@simpleview/sv-email-client",
-	"version": "1.0.2",
+	"version": "1.0.4",
 	"description": "Client for communicating with sv-email",
 	"author": "Quinton Price <gotshogi@gmail.com>",
 	"peerDependencies": {
@@ -9,10 +9,6 @@
 	"main": "src/index.js",
 	"scripts": {
 		"publish": "./dev/publish"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/simpleviewinc/sv-email-client"
 	},
 	"license": "MIT"
 }
