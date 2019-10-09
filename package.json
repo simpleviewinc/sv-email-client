@@ -10,5 +10,9 @@
 	"scripts": {
 		"publish": "./dev/publish"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/simpleviewinc/sv-email-client"
+	},
 	"license": "MIT"
 }
