@@ -63,8 +63,6 @@ class EmailPrefix {
 	async test_reset_data({ context, fields }) {
 		context = context || this._graphServer.context;
 		
-		console.log("context", context);
-		
 		const variables = {
 			acct_id : context.acct_id
 		}
