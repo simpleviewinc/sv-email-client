@@ -7,7 +7,7 @@ class EmailPrefix {
 		this._graphUrl = graphUrl;
 		this._graphServer = graphServer;
 	}
-	async send({ input, fields, context }) {
+	async send({ input, fields, context, headers }) {
 		context = context || this._graphServer.context;
 
 		const variables = {
@@ -27,12 +27,13 @@ class EmailPrefix {
 			`,
 			variables,
 			url : this._graphUrl,
-			token : context.token
+			token : context.token,
+			headers
 		});
 		
 		return response.email.send;
 	}
-	async setup({ context, fields }) {
+	async setup({ context, fields, headers }) {
 		context = context || this._graphServer.context;
 		
 		const variables = {
@@ -51,7 +52,8 @@ class EmailPrefix {
 			`,
 			variables,
 			url : this._graphUrl,
-			token : context.token
+			token : context.token,
+			headers
 		});
 		
 		const returnData = result.email.setup;
@@ -60,7 +62,7 @@ class EmailPrefix {
 		
 		return returnData;
 	}
-	async test_reset_data({ context, fields }) {
+	async test_reset_data({ context, fields, headers }) {
 		context = context || this._graphServer.context;
 		
 		const variables = {
@@ -79,7 +81,8 @@ class EmailPrefix {
 			`,
 			variables,
 			url : this._graphUrl,
-			token : context.token
+			token : context.token,
+			headers
 		});
 		
 		const returnData = result.email.test_reset_data;
@@ -88,7 +91,7 @@ class EmailPrefix {
 		
 		return returnData;
 	}
-	async test_clear_data({ context, fields }) {
+	async test_clear_data({ context, fields, headers }) {
 		context = context || this._graphServer.context;
 		
 		const variables = {
@@ -107,7 +110,8 @@ class EmailPrefix {
 			`,
 			variables,
 			url : this._graphUrl,
-			token : context.token
+			token : context.token,
+			headers
 		});
 		
 		const returnData = result.email.test_clear_data;
