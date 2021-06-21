@@ -33,6 +33,93 @@ class EmailPrefix {
 		
 		return response.email.send;
 	}
+	async account_setup({ fields, context, headers }) {
+		context = context || this._graphServer.context;
+
+		const variables = {
+			acct_id : context.acct_id
+		}
+
+		const result = await query({
+			query : `
+				mutation($acct_id: String!) {
+					email(acct_id: $acct_id) {
+						account_setup {
+							${fields}
+						}
+					}
+				}
+			`,
+			variables,
+			url : this._graphUrl,
+			token : context.token,
+			headers
+		});
+
+		const returnData = result.email.account_setup;
+		
+		nullToUndefined(returnData);
+		
+		return returnData;
+	}
+	async account_delete({ fields, context, headers }) {
+		context = context || this._graphServer.context;
+
+		const variables = {
+			acct_id : context.acct_id
+		}
+
+		const result = await query({
+			query : `
+				mutation($acct_id: String!) {
+					email(acct_id: $acct_id) {
+						account_delete {
+							${fields}
+						}
+					}
+				}
+			`,
+			variables,
+			url : this._graphUrl,
+			token : context.token,
+			headers
+		});
+		
+		const returnData = result.email.account_delete;
+		
+		nullToUndefined(returnData);
+		
+		return returnData;
+	}
+	async account_delete_key({ fields, context, headers }) {
+		context = context || this._graphServer.context;
+
+		const variables = {
+			acct_id : context.acct_id
+		}
+
+		const result = await query({
+			query : `
+				mutation($acct_id: String!) {
+					email(acct_id: $acct_id) {
+						account_delete_key {
+							${fields}
+						}
+					}
+				}
+			`,
+			variables,
+			url : this._graphUrl,
+			token : context.token,
+			headers
+		});
+
+		const returnData = result.email.account_delete_key;
+		
+		nullToUndefined(returnData);
+		
+		return returnData;
+	}
 	async setup({ context, fields, headers }) {
 		context = context || this._graphServer.context;
 		
