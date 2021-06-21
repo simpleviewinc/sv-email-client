@@ -1,6 +1,6 @@
 {
 	"name": "@simpleview/sv-email-client",
-	"version": "1.0.8",
+	"version": "1.1.0",
 	"description": "Client for communicating with sv-email",
 	"author": "Quinton Price <gotshogi@gmail.com>",
 	"peerDependencies": {
